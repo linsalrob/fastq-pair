@@ -162,6 +162,7 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         // make a copy of the current line so we can print it out later.
         char *headerline = dupstr(line);
 
+        line[strcspn(line, "\n")] = '\0';
         line[strcspn(line, " ")] = '\0';
 
         /* remove the last character, as we did above */
