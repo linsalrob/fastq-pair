@@ -31,7 +31,7 @@ it will print out the number of sequences in each "bucket" in the table. If this
 need to increase the value you provide to `-t`. If most of the entries are zero, then you should decrease the size of 
 `-t`.
 
-## Installing fastq-pair
+## Installing fastq_pair
 
 To install the code, grab the github repository, then make a build directory:
 ```$xslt
@@ -41,37 +41,37 @@ make && sudo make install
 ```
 There are more instructions on the [installation](INSTALLATION.md) page.
 
-## Running fastq-pair 
+## Running fastq_pair 
 
-`fastq-pair` takes two primary arguments. The name of the two fastq files that you want to pair up. 
+`fastq_pair` takes two primary arguments. The name of the two fastq files that you want to pair up. 
 
 ```$xslt
-fastq-pair file1.fastq file2.fastq
+fastq_pair file1.fastq file2.fastq
 ```
 
 You can also change the size of the hash table using the `-t` parameter:
 
 ```$xslt
-fastq-pair -t 50021 file1.fastq file2.fastq
+fastq_pair -t 50021 file1.fastq file2.fastq
 ```
 
 You can also print out the number of elements in each bucket using the `-p` parameter:
 
 ```$xslt
-fastq-pair -p -t 100 file1.fastq file2.fastq
+fastq_pair -p -t 100 file1.fastq file2.fastq
 ```
 
 
-## Testing fastq-pair
+## Testing fastq_pair
 
-In the [test](test/) directory there are two fastq files that you can use to test `fastq-pair`. There are 250 sequences
+In the [test](test/) directory there are two fastq files that you can use to test `fastq_pair`. There are 250 sequences
 in the [left](test/left.fastq) file and 75 sequences in the [right](test/right.fastq) file. Only 50 sequences are common
 between the two files.
 
 You can test the code with:
 
 ```$xslt
-fastq-pair -t 1000 test/left.fastq test/right.fastq
+fastq_pair -t 1000 test/left.fastq test/right.fastq
 ```
 
 This will make four files in the [test/](test) directory:

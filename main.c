@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
 void help(char *s) {
     fprintf(stdout, "\n%s [options] [fastq file 1] [fastq file 2]\n", s);
-    fprintf(stdout, "\nOPTIONS\n-t table size (default 10000000)\n");
+    fprintf(stdout, "\nOPTIONS\n-t table size (default 100003)\n");
     fprintf(stdout, "-p print the number of elements in each bucket in the table\n");
 
 }

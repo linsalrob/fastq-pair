@@ -1,6 +1,6 @@
-# INSTALLING fastq-pair
+# INSTALLING fastq_pair
 
-We use cmake (version 3 or higher) for fastq-pair. The best way to install it is to use these commands:
+We use cmake (version 3 or higher) for `fastq_pair`. The best way to install it is to use these commands:
 
 ```
 mkdir build && cd build
@@ -8,7 +8,7 @@ cmake3 ../
 make && sudo make install
 ```
 
-If you don't have root access, you can also install fastq-pair in your home directory like this.
+If you don't have root access, you can also install `fastq_pair` in your home directory like this.
 
 ```
 mkdir build && cd build
@@ -16,7 +16,7 @@ cmake3 -DCMAKE_INSTALL_PREFIX=$HOME/bin
 make && make install
 ```
 
-You should then be able to call fastq-pair.
+You should then be able to call `fastq_pair.
 
 ### Note:
 
