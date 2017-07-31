@@ -31,6 +31,9 @@ it will print out the number of sequences in each "bucket" in the table. If this
 need to increase the value you provide to `-t`. If most of the entries are zero, then you should decrease the size of 
 `-t`.
 
+As an aside, this code is also _really_ slow if _none_ of your sequences are paired. You should most likely use this
+after taking a peek at your files and making sure there are at least _some_ paired sequences in your files!
+
 ## Installing fastq_pair
 
 To install the code, grab the github repository, then make a build directory:
