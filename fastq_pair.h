@@ -29,6 +29,7 @@ struct idloc {
 struct options {
     int tablesize;
     bool print_table_counts;
+    bool verbose;
 };
 
 // how long should our lines be. This is a 64k buffer

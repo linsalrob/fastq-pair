@@ -64,6 +64,8 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
             line[strlen(line)-1] = '\0';
 
+        if (opt->verbose)
+            fprintf(stderr, "ID is |%s|\n", line);
 
         newid->id = dupstr(line);
         newid->pos = nextposition;
