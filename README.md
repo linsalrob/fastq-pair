@@ -82,3 +82,15 @@ This will make four files in the [test/](test) directory:
 
 The _paired_ files have 50 sequences each, and the two _single_ files have 200 and 25 sequences (left and right respectively).
 
+### A note about gzipped fastq files
+
+Unfortunately `fastq_pair` doesn't work with gzipped files at the moment, because it relies heavily on random access of 
+the file stream. That is complex with gzipped files, especially when the uncompressed file exceeds available memory 
+(which is exactly the situation that `fastq_pair` was designed to handle). 
+
+Therefore, at this time, `fastq_pair` does not support gzipped files. You need to uncompress the files before using 
+`fastq_pair`.
+
+If you really need to use gzipped files, and can accept slightly worse performance, then 
+[we have some alternative](https://edwards.sdsu.edu/research/sorting-and-paring-fastq-files/) approaches
+written in Python that you can try.
