@@ -48,6 +48,7 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
             return 0;
         }
 
+        line[strcspn(line, "\n")] = '\0';
         line[strcspn(line, " ")] = '\0';
 
         /*
