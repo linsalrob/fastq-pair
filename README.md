@@ -1,7 +1,13 @@
 # FASTQ PAIR
 
+Rewrite paired end fastq files to make sure that all reads have a mate and to separate out singletons.
+
 This code does one thing: it takes two fastq files, and generates four fastq files. That's right, for free it doubles 
 the number of fastq files that you have!!
+
+Usually when you get paired end read files you have two files with a /1 sequence in one and a /2 sequence in the other (or a /f and /r or just two reads with the same ID).  However, often when working with files from a third party source (e.g. [the SRA](http://edwards.sdsu.edu/research/sra/)) there are different numbers of reads in each file (because some reads fail QC). Spades, bowtie2 and other tools break because they demand paired end files have the same number of reads. 
+
+This program solves that problem. 
 
 It rewrites the files with the sequences in order, with matching files for the two files provided on the command line, 
 and then any single reads that are not matched are place in two separate files, one for each original file.
