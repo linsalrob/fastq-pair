@@ -15,7 +15,7 @@ and then any single reads that are not matched are place in two separate files, 
 This code is designed to be fast and memory efficient, and works with large fastq files. It does not store the whole
 file in memory, but rather just stores the locations of each of the indices in the first file provided in memory.
 
-###Speed and efficiency considerations
+### Speed and efficiency considerations
 
 The most efficient way to use this code is to provide the smallest file first (though it doesn't matter which way you 
 provide the files), and then to manipulate the `-t` parameter on the command line. The code implementation is based 
