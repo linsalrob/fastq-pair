@@ -62,8 +62,10 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
          */
 
         char lastchar = line[strlen(line)-1];
-        if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
-            line[strlen(line)-1] = '\0';
+        char lastbutone = line[strlen(line)-2];
+        if ('/' == lastbutone || '_' == lastbutone)
+            if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
+                line[strlen(line)-1] = '\0';
 
         if (opt->verbose)
             fprintf(stderr, "ID is |%s|\n", line);
@@ -168,8 +170,10 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         /* remove the last character, as we did above */
 
         char lastchar = line[strlen(line)-1];
-        if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
-            line[strlen(line)-1] = '\0';
+        char lastbutone = line[strlen(line)-2];
+        if ('/' == lastbutone || '_' == lastbutone)
+            if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
+                line[strlen(line)-1] = '\0';
 
         // now see if we have the mate pair
         unsigned hashval = hash(line) % opt->tablesize;
