@@ -233,6 +233,21 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
     fclose(lfp);
     fclose(rfp);
 
+    /*
+     * Free up the memory for all the pointers
+     */
+
+
+    for (int i = 0; i < opt->tablesize; i++) {
+        struct idloc *ptr = ids[i];
+        struct idloc *next;
+        while (ptr != NULL) {
+            next = ptr->next;
+            free(ptr);
+            ptr=next;
+        }
+    }
+
     free(ids);
     free(line);
 
