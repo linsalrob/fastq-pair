@@ -103,3 +103,7 @@ Therefore, at this time, `fastq_pair` does not support gzipped files. You need t
 If you really need to use gzipped files, and can accept slightly worse performance, then 
 [we have some alternative](https://edwards.sdsu.edu/research/sorting-and-paring-fastq-files/) approaches
 written in Python that you can try.
+
+## Citing fastq_pair
+
+Please see the [CITATION](CITATION.md) file for the current citation for fastq-pair
