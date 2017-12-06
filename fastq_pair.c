@@ -171,7 +171,7 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
 
         char lastchar = line[strlen(line)-1];
         char lastbutone = line[strlen(line)-2];
-        if ('/' == lastbutone || '_' == lastbutone)
+        if ('/' == lastbutone || '_' == lastbutone || '.' == lastbutone)
             if ('1' == lastchar || '2' == lastchar || 'f' == lastchar ||  'r' == lastchar)
                 line[strlen(line)-1] = '\0';
 
