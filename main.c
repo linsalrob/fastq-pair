@@ -4,6 +4,17 @@
 #include <unistd.h>
 #include <string.h>
 
+#include <sys/time.h>
+
+long long get_time_ms()
+{
+    struct timeval te;
+    gettimeofday(&te, NULL);
+    long long milliseconds = te.tv_sec*1000LL + te.tv_usec/1000;
+    return milliseconds;
+}
+
+
 void help(char *s);
 
 int main(int argc, char* argv[]) {
@@ -44,8 +55,16 @@ int main(int argc, char* argv[]) {
         exit(-1);
     }
 
+    long long start_time, end_time, overhead_time;
+    start_time = get_time_ms();
+    end_time = get_time_ms();
+    overhead_time = end_time - start_time;
 
+    start_time = get_time_ms();
     int success = pair_files(left_file, right_file, opt);
+    end_time = get_time_ms();
+    if (opt->verbose)
+	    printf ("Elapsed time = %lld (ms)\n", end_time - start_time - overhead_time);
 
     return success;
 }
