@@ -1,5 +1,34 @@
 /*
  * Pair a fastq file using a quick index.
+ *
+ * We have two files, and each file holds sequence data. Each data element is represented by only four, and exactly four
+ * lines:
+ *
+ * @id1/1    <- the sequence identifier always begins with an @ sign and then the identifier is the string upto the first whitespace. The identifier must be unique per sequence in a file
+ * ATGATC.... <- the DNA sequence
+ * +        <- a line that begins with the + sign and may also have the identifier (but doesn't need to!)
+ * !%$#^@     <- an ascii representation of the "quality" of the sequence. The quality is a number between 0 and 100 and this is the chr of that number +33
+ *
+ * In the two files, there should be some sequences that are related, and they are denoted either as 1/2,  forward/reverse, or just by having the whole id the same
+ *
+ * @id1/1  pairs with @id1/2
+ *
+ * or
+ *
+ * @id1/f pairs with @id1/r
+ *
+ * or
+ *
+ * @id1 in file 1 pairs with @id1 in file 2
+ *
+ * We read the file and make a hash of the ID without the /1 or /f and the position of that id in the file (using tell)
+ * Then we read the second file and check to see if we have a matching sequence. If we do, we print both sequences
+ * one to each file, and we set the "printed" boolean to true in our data structure corresponding to that ID.
+ *
+ * Finally, we read through our data structure and print out any sequences that we have not seen before.
+ *
+ * Note that to print out the sequences we seek to the position we recorded and print four lines.
+ *
  */
 
 #include "fastq_pair.h"
@@ -19,9 +48,6 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         fprintf(stderr, "We cannot allocate the memory for a table size of %d. Please try a smaller value for -t\n", opt->tablesize);
         exit(-1);
     }
-
-    //for (int i = 0; i < opt->tablesize; i++)
-    //    ids[i] = NULL;
 
     FILE *lfp;
 
