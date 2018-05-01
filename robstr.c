@@ -31,10 +31,10 @@ char *catstr(const char *s, const char *t) {
 		fprintf(stderr, "Cannot allocate memory for catstr of %s and %s\n", s, t);
 		exit(1);
 	}
-	int i;
+	unsigned i;
 	for (i=0; i<strlen(s); i++) 
 		result[i] = s[i];
-	for (int j=0; j<strlen(t); j++)
+	for (unsigned j=0; j<strlen(t); j++)
 		result[i++] = t[j];
 	result[i]='\0';
 	return result;
