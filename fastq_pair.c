@@ -16,7 +16,7 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
 
     // if we are not able to allocate the memory for this, there is no point continuing!
     if (ids == NULL) {
-        fprintf(stderr, "We cannot allocation the memory for a table size of %d. Please try a smaller value for -t\n", opt->tablesize);
+        fprintf(stderr, "We cannot allocate the memory for a table size of %d. Please try a smaller value for -t\n", opt->tablesize);
         exit(-1);
     }
 
