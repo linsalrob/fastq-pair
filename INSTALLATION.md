@@ -12,7 +12,7 @@ If you don't have root access, you can also install `fastq_pair` in your home di
 
 ```
 mkdir build && cd build
-cmake3 -DCMAKE_INSTALL_PREFIX=$HOME/bin
+cmake3 -DCMAKE_INSTALL_PREFIX=$HOME/bin ..
 make && make install
 ```
 
