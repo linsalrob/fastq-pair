@@ -28,6 +28,8 @@ int main(int argc, char* argv[]) {
     opt = malloc(sizeof(struct options));
 
     opt->tablesize = 100003;
+    opt->print_table_counts = false;
+    opt->verbose = false;
     char *left_file = NULL;
     char *right_file = NULL;
 
