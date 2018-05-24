@@ -18,6 +18,19 @@ make && make install
 
 You should then be able to call `fastq_pair.
 
+## Alternative Installation
+
+As noted in [issue #3](https://github.com/linsalrob/fastq-pair/issues/3) you don't really need to use CMAKE at all.
+
+As an alternative, you can run
+
+```
+gcc ../*.c -o fastq_pair
+```
+
+Which will compile the code and create an executable for you!
+
+
 ### Note:
 
 This implementation is based on a [hash table](https://en.wikipedia.org/wiki/Hash_table). The key
