@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/linsalrob/fastq-pair.svg?branch=master)](https://travis-ci.org/linsalrob/fastq-pair)
+
 # FASTQ PAIR
 
 Rewrite paired end fastq files to make sure that all reads have a mate and to separate out singletons.
