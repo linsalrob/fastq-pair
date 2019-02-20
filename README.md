@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/98881309.svg)](https://zenodo.org/badge/latestdoi/98881309)
 [![Build Status](https://travis-ci.org/linsalrob/fastq-pair.svg?branch=master)](https://travis-ci.org/linsalrob/fastq-pair)
 
 # FASTQ PAIR
