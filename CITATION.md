@@ -2,9 +2,7 @@
 
 If you use fastq-pair, please cite: 
 
-fastq-pair: efficient synchronization of paired-end fastq files
-Robert Edwards, John A Edwards
-[bioRxiv 552885](https://www.biorxiv.org/content/10.1101/552885v1); doi: https://doi.org/10.1101/552885
+fastq-pair: efficient synchronization of paired-end fastq files. 2019. Robert A Edwards and John A Edwards. [bioRxiv 552885](https://www.biorxiv.org/content/10.1101/552885v1); doi: https://doi.org/10.1101/552885
 
 ```
 @article {Edwards552885,
