@@ -19,6 +19,10 @@ void help(char *s);
 
 int main(int argc, char* argv[]) {
 
+    if (argc == 2 && (strcmp(argv[1], "-V") == 0)) {
+        fprintf(stdout, "%s version %0.1f\n", argv[0], 0.2);
+        exit(0);
+    }
     if (argc < 3) {
         help(argv[0]);
         exit(0);
@@ -57,6 +61,7 @@ int main(int argc, char* argv[]) {
         exit(-1);
     }
 
+
     long long start_time, end_time, overhead_time;
     start_time = get_time_ms();
     end_time = get_time_ms();
@@ -76,5 +81,7 @@ void help(char *s) {
     fprintf(stdout, "\nOPTIONS\n-t table size (default 100003)\n");
     fprintf(stdout, "-p print the number of elements in each bucket in the table\n");
     fprintf(stdout, "-v verbose output. This is mainly for debugging\n");
-
+    fprintf(stdout, "-V print the current version number and exit\n");
 }
+
+void
