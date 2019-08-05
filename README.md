@@ -110,7 +110,7 @@ If you really need to use gzipped files, and can accept slightly worse performan
 [we have some alternative](https://edwards.sdsu.edu/research/sorting-and-paring-fastq-files/) approaches
 written in Python that you can try.
 
-### Testing for gzipped files
+### Testing for gzipped files ([issue #6](https://github.com/linsalrob/fastq-pair/issues/6))
 
 We take a peek at the first couple of bytes in the file to see if the file is gzip compressed. Per the standard, the
 files should start 0x1F and 0x8B as the first two bytes. There is a small tester for the gzip program, called `test_gzip.c`,
