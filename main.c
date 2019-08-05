@@ -1,4 +1,5 @@
 #include "fastq_pair.h"
+#include "is_gzipped.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -20,7 +21,7 @@ void help(char *s);
 int main(int argc, char* argv[]) {
 
     if (argc == 2 && (strcmp(argv[1], "-V") == 0)) {
-        fprintf(stdout, "%s version %0.1f\n", argv[0], 0.2);
+        fprintf(stdout, "%s version %0.1f\n", argv[0], 0.3);
         exit(0);
     }
     if (argc < 3) {
@@ -61,6 +62,14 @@ int main(int argc, char* argv[]) {
         exit(-1);
     }
 
+    //if (test_gzip(left_file) || test_gzip(right_file)) {
+    if (test_gzip(left_file) || test_gzip(right_file)) {
+        fprintf(stderr, "ERROR: It appears that your files are compressed with gzip.\n");
+        fprintf(stderr, "At this time we can't handle gzipped files because we use random access reading of the data stream.\n");
+        fprintf(stderr, "Please either uncompress the files, or check these alternatives: https://edwards.sdsu.edu/research/sorting-and-paring-fastq-files/\n");
+        exit(-1);
+    }
+
 
     long long start_time, end_time, overhead_time;
     start_time = get_time_ms();
@@ -71,7 +80,7 @@ int main(int argc, char* argv[]) {
     int success = pair_files(left_file, right_file, opt);
     end_time = get_time_ms();
     if (opt->verbose)
-	    printf ("Elapsed time = %lld (ms)\n", end_time - start_time - overhead_time);
+        printf ("Elapsed time = %lld (ms)\n", end_time - start_time - overhead_time);
 
     return success;
 }
