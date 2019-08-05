@@ -84,4 +84,3 @@ void help(char *s) {
     fprintf(stdout, "-V print the current version number and exit\n");
 }
 
-void
