@@ -14,9 +14,9 @@
  * next is a pointer to the next idloc element in the hash.
  */
 struct idloc {
+    bool printed;
     long int pos;
     char *id;
-    bool printed;
     struct idloc *next;
 };
 
