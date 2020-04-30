@@ -39,6 +39,14 @@ wc -l fastq_filename
 ```
 The number of sequences will be the number printed here, divided by 4.
 
+_Note_: If you get an error that looks like 
+```
+"We cannot allocate the memory for a table size of -436581356. Please try a smaller value for -t"
+```
+
+you are probably suffering from an integer overflow, so try reducing the value you are providing to the `-t` option.
+See [issue 12](https://github.com/linsalrob/fastq-pair/issues/12) for more details.
+
 If you are not sure, you can run this code with the `-p` parameter. Before it prints out the matched pairs of sequences,
 it will print out the number of sequences in each "bucket" in the table. If this number is more than about a dozen you
 need to increase the value you provide to `-t`. If most of the entries are zero, then you should decrease the size of
