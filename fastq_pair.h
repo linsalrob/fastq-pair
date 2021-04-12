@@ -30,6 +30,7 @@ struct options {
     int tablesize;
     bool print_table_counts;
     bool verbose;
+    bool splitspace;
 };
 
 // how long should our lines be. This is a 64k buffer

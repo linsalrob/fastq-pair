@@ -75,7 +75,8 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         }
 
         line[strcspn(line, "\n")] = '\0';
-	// line[strcspn(line, " ")] = '\0';
+	if (opt->splitspace)
+	    line[strcspn(line, " ")] = '\0';
 
         /*
          * Figure out what the match mechanism is. We have three examples so
@@ -191,7 +192,8 @@ int pair_files(char *left_fn, char *right_fn, struct options *opt) {
         char *headerline = dupstr(line);
 
         line[strcspn(line, "\n")] = '\0';
-        // line[strcspn(line, " ")] = '\0';
+	if (opt->splitspace)
+            line[strcspn(line, " ")] = '\0';
 
         /* remove the last character, as we did above */
 

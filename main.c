@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
     struct options *opt;
     opt = malloc(sizeof(struct options));
 
+    opt->splitspace = true;
     opt->tablesize = 100003;
     opt->print_table_counts = false;
     opt->verbose = false;
@@ -46,6 +47,8 @@ int main(int argc, char* argv[]) {
             opt->tablesize = atoi(argv[++i]);
         else if (strcmp(argv[i], "-p") == 0)
             opt->print_table_counts = true;
+        else if (strcmp(argv[i], "-s") == 0)
+            opt->verbose = false;
         else if (strcmp(argv[i], "-v") == 0)
             opt->verbose = true;
         else if (access(argv[i], F_OK) != -1 && left_file == NULL)
@@ -87,7 +90,9 @@ int main(int argc, char* argv[]) {
 
 void help(char *s) {
     fprintf(stdout, "\n%s [options] [fastq file 1] [fastq file 2]\n", s);
-    fprintf(stdout, "\nOPTIONS\n-t table size (default 100003)\n");
+    fprintf(stdout, "\nOPTIONS\n");
+    fprintf(stdout, "-s do not split sequence IDs on spaces. See issue #14 for more details");
+    fprintf(stdout, "-t table size (default 100003)\n");
     fprintf(stdout, "-p print the number of elements in each bucket in the table\n");
     fprintf(stdout, "-v verbose output. This is mainly for debugging\n");
     fprintf(stdout, "-V print the current version number and exit\n");
