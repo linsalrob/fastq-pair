@@ -25,7 +25,7 @@ As noted in [issue #3](https://github.com/linsalrob/fastq-pair/issues/3) you don
 As an alternative, you can run
 
 ```
-gcc ../*.c -o fastq_pair
+gcc -std=gnu99  -o fastq_pair fastq_pair.c main.c  robstr.c is_gzipped.c 
 ```
 
 Which will compile the code and create an executable for you!
